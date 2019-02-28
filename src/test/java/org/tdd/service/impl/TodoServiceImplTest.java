@@ -39,6 +39,19 @@ public class TodoServiceImplTest {
     }
 
     @Test
+    public void deleteTodoById() {
+        todoService = new TodoServiceImpl();
+        buyDogFood = todoService.addTodo(buyDogFood);;
+        buyCatFood = todoService.addTodo(buyCatFood);
+
+        todoService.deleteTodoById(buyDogFood.getId());
+        Assert.assertTrue("todo 'Buy dog food' should not be in todo list", !todoService.todos.contains(buyDogFood));
+        todoService.deleteTodoById(buyCatFood.getId());
+        Assert.assertTrue("todo 'Buy cat food' should not be in todo list", !todoService.todos.contains(buyCatFood));
+
+    }
+
+    @Test
     public void getAllTodos() {
         List<Todo> todos = todoService.getTodos();
         Assert.assertEquals("todo list length should be 2", 2, todos.size());

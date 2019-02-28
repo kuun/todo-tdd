@@ -1,6 +1,7 @@
 package org.tdd.pojo;
 
 public class Todo {
+    private int id;
     private String title;
 
     public Todo() {
@@ -16,6 +17,14 @@ public class Todo {
 
     public String getTitle() {
         return title;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
@@ -39,4 +48,5 @@ public class Todo {
                 "title='" + title + '\'' +
                 '}';
     }
+
 }

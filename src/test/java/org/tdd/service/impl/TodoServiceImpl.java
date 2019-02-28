@@ -4,16 +4,20 @@ import org.tdd.pojo.Todo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class TodoServiceImpl {
+    AtomicInteger nextId = new AtomicInteger();
     List<Todo> todos;
 
     public TodoServiceImpl() {
         this.todos = new ArrayList<>();
     }
 
-    public void addTodo(Todo todo) {
+    public Todo addTodo(Todo todo) {
+        todo.setId(nextId.getAndAdd(1));
         todos.add(todo);
+        return todo;
     }
 
     public void deleteTodo(Todo todo) {
@@ -22,5 +26,9 @@ public class TodoServiceImpl {
 
     public List<Todo> getTodos() {
         return todos;
+    }
+
+    public void deleteTodoById(int todoId) {
+        todos.removeIf(todo -> todo.getId() == todoId);
     }
 }

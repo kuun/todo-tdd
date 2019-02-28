@@ -34,18 +34,19 @@ public class Todo {
 
         Todo todo = (Todo) o;
 
-        return title.equals(todo.title);
+        return id == todo.id;
     }
 
     @Override
     public int hashCode() {
-        return title.hashCode();
+        return id;
     }
 
     @Override
     public String toString() {
         return "Todo{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 '}';
     }
 

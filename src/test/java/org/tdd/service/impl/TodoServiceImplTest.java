@@ -30,4 +30,20 @@ public class TodoServiceImplTest {
         Assert.assertTrue("todo 'Buy dog food' should be in todo list", todoService.todos.contains(buyDogFood));
         Assert.assertTrue("todo 'Buy cat food' should be in todo list", todoService.todos.contains(buyCatFood));
     }
+
+    @Test
+    public void deleteTodo() {
+        Todo buyDogFood = new Todo("Buy dog food");
+        Todo buyCatFood = new Todo("Buy cat food");
+
+        TodoServiceImpl todoService = new TodoServiceImpl();
+        todoService.addTodo(buyDogFood);
+        todoService.addTodo(buyCatFood);
+
+        todoService.deleteTodo(buyDogFood);
+        Assert.assertTrue("todo 'Buy dog food' should not be in todo list", !todoService.todos.contains(buyDogFood));
+        todoService.deleteTodo(buyCatFood);
+        Assert.assertTrue("todo 'Buy cat food' should not be in todo list", !todoService.todos.contains(buyCatFood));
+        Assert.assertTrue("todo list should be empty", todoService.todos.isEmpty());
+    }
 }

@@ -1,6 +1,5 @@
 package org.tdd.service.impl;
 
-import org.junit.Test;
 import org.tdd.pojo.Todo;
 
 import java.util.ArrayList;
@@ -15,5 +14,9 @@ public class TodoServiceImpl {
 
     public void addTodo(Todo todo) {
         todos.add(todo);
+    }
+
+    public void deleteTodo(Todo todo) {
+        todos.remove(todo);
     }
 }

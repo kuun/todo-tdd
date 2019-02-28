@@ -19,4 +19,8 @@ public class TodoServiceImpl {
     public void deleteTodo(Todo todo) {
         todos.remove(todo);
     }
+
+    public List<Todo> getTodos() {
+        return todos;
+    }
 }

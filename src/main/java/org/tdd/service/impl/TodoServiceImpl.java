@@ -1,5 +1,6 @@
 package org.tdd.service.impl;
 
+import org.springframework.stereotype.Service;
 import org.tdd.pojo.Todo;
 import org.tdd.service.ITodoService;
 
@@ -7,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@Service
 public class TodoServiceImpl implements ITodoService {
     AtomicInteger nextId = new AtomicInteger();
     List<Todo> todos;

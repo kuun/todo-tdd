@@ -17,4 +17,17 @@ public class TodoServiceImplTest {
         Assert.assertEquals("the todo should be '" + title + "'", todo, addedTodo);
     }
 
+    @Test
+    public void add2TodoTest() {
+        Todo buyDogFood = new Todo("Buy dog food");
+        Todo buyCatFood = new Todo("Buy cat food");
+
+        TodoServiceImpl todoService = new TodoServiceImpl();
+        todoService.addTodo(buyDogFood);
+        todoService.addTodo(buyCatFood);
+
+        Assert.assertEquals("todo list length should be 2", 2, todoService.todos.size());
+        Assert.assertTrue("todo 'Buy dog food' should be in todo list", todoService.todos.contains(buyDogFood));
+        Assert.assertTrue("todo 'Buy cat food' should be in todo list", todoService.todos.contains(buyCatFood));
+    }
 }
